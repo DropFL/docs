@@ -67,6 +67,30 @@ body {
 	}
 }
 
+footer {
+	height: 100px;
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 120%;
+	color: darkgray;
+
+	span {
+		font-size: 0.8em;
+		display: table-cell;
+		vertical-align: middle;
+
+		a {
+			color: rgb(77, 169, 255);
+			text-decoration: none;
+
+			&:hover {
+				color: rgb(0, 117, 226);
+			}
+		}
+	}
+}
+
 .main {
 	margin-top: $space + $nav-header-height;
 
@@ -114,6 +138,7 @@ header {
 			height: $emblem-size;
 			width: $emblem-size;
 			margin-right: $space - 5;
+			border-radius: 100%;
 		}
 	}
 
@@ -234,12 +259,13 @@ nav > ul {
 	line-height: 1;
 	margin: 0;
 
-	nav:not(.full-navigation) & > ul {
-		display: none;
+	> .init {
+		transition: none !important;
 	}
 
-	nav:not(.full-navigation) &.current > ul {
-		display: block;
+	> img {
+		transition: transform 0.2s ease-out;
+		width: 1.4rem;
 	}
 
 	> a {
@@ -250,15 +276,33 @@ nav > ul {
 		display: block;
 	}
 
+	> button {
+		color: #666;
+		line-height: 1.5;
+		font-weight: 600;
+		border: none;
+		outline: none;
+		background-color: $nav-background-color;
+		transition: color 0.2s ease;
+	}
+
+	> ul {
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		max-height: 0;
+	}
+
 	&.current > a,
-	> a:active,
-	> a:hover {
+	&.current > button,
+	> button.active,
+	> *:active,
+	> *:hover {
 		color: #111;
 	}
 
-	&.top-level > a {
-		line-height: 1.5;
-		font-weight: 600;
+	&.top-level {
+		position: relative;
+		list-style: none;
 		padding-left: $space;
 	}
 }
