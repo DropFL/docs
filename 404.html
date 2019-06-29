@@ -3,4 +3,17 @@ layout: default
 permalink: /404.html
 ---
 
-<!-- empty -->
+<script>
+    var lang = document.location.pathname.substring(1).split('/')[0];
+    var langs = [
+        {% for l in site.languages %}
+            "{{ l }}",
+        {% endfor %}
+        null
+    ];
+    
+    if (!langs.includes(lang))
+        lang = "{{ site.def_lang }}";
+    
+    window.location.replace('{{ site.url }}/' + lang + '/404');
+</script>

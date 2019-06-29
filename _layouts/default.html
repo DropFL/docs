@@ -10,9 +10,7 @@
 		{% assign tokens = page.url | split:'/' %}
 		{% assign lang = tokens[1] %}
 		{% unless site.languages contains lang %}
-			<script>
-				window.location.replace('{{ site.url }}/{{ site.def_lang }}');
-			</script>
+			{% assign lang = site.def_lang %}
 		{% endunless %}
 		{% assign locale = site.data.translate[lang] %}
 
@@ -56,24 +54,29 @@
 
 	<body>
 		<header>
+			<!-- upper-left logo & title & menu button -->
 			<h1>
 				<a href="/{{ lang }}"><img src="/images/DR.png" width="40" height="40" alt="logo"></a>
 				{{ site.title }}
 				<button type="button" class="open-nav" id="open-nav"></button>
 			</h1>
 
+			<!-- search field -->
 			<form action="/search/" method="get">
 				<input type="text" name="q" id="search-input" placeholder="{{ locale.search_text }}" autofocus>
 				<input type="submit" value="Search" style="display: none;">
 			</form>
 
+			<!-- site navigator -->
 			<nav>
+				<!-- welcome -->
 				<ul>
 					<li class="nav-item {% if page.url == "/{{ lang }}" %}current{% endif %}">
 						<a href="/{{ lang }}">{{ locale.welcome_text }}</a>
 					</li>
 				</ul>
 
+				<!-- contents -->
 				<ul>
 					{% assign grouped = site.docs | where: "lang", lang | group_by: 'category' %}
 					{% for group in grouped %}
@@ -93,6 +96,7 @@
 					{% endfor %}
 				</ul>
 
+				<!-- original repository link -->
 				<ul>
 					<li class="nav-item">
 						<a href="https://github.com/CloudCannon/edition-jekyll-template">{{ locale.repo_text }}</a>
@@ -103,7 +107,15 @@
 
 		<section class="main">
 			<div class="page-header">
-				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+				<h2>
+					{% assign name = page.url | split: "/" | last %}
+					{% if name == "404" %}
+						{{ locale.not_found_title }}
+					{% elsif page.category %}
+						{{ page.category }}
+					{% else %}
+						{{ site.title }}
+					{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
 			</div>
 			<article class="content">
