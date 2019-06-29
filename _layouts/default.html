@@ -11,7 +11,7 @@
 		{% assign lang = tokens[1] %}
 		{% unless site.languages contains lang %}
 			<script>
-				window.location.replace('{{ site.url }}/{{ site.def_lang }}{{ page.url }}');
+				window.location.replace('{{ site.url }}/{{ site.def_lang }}');
 			</script>
 		{% endunless %}
 		{% assign locale = site.data.translate[lang] %}
