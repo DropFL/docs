@@ -1,8 +1,12 @@
 # ----
 # Site
 
-title: DropFL's Homepage
+title: DropFL
 url: https://dropfl.github.com
+languages:
+  - ko
+  - en
+def_lang: ko
 google_analytics_key:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
@@ -63,3 +67,13 @@ defaults:
     values:
       _comments:
         type: Marks the impact of this release
+  -
+    scope:
+      path: "_docs/en"
+    values:
+      lang: en
+  -
+    scope:
+      path: "_docs/ko"
+    values:
+      lang: ko

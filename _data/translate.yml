@@ -1,0 +1,11 @@
+# English
+en:
+  search_text: Search
+  welcome_text: Welcome!
+  repo_text: Template Repository
+
+# Korean
+ko:
+  search_text: 검색
+  welcome_text: 환영합니다!
+  repo_text: 템플릿 레포지토리

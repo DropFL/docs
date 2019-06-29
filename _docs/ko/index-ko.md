@@ -1,6 +1,10 @@
 ---
-title: Welcome
+title: 환영합니다!
+permalink: /ko
+ref: welcome
 ---
+
+한글 페이지
 
 This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
 **Edition** is perfect for documenting your product, application or service.

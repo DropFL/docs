@@ -7,23 +7,39 @@
 
 		{% seo %}
 		{% feed_meta %}
+		{% assign tokens = page.url | split:'/' %}
+		{% assign lang = tokens[1] %}
+		{% unless site.languages contains lang %}
+			<script>
+				window.location.replace('{{ site.url }}/{{ site.def_lang }}{{ page.url }}');
+			</script>
+		{% endunless %}
+		{% assign locale = site.data.translate[lang] %}
 
+		<!-- 
+		{% case lang %}
+			{% when "ko" %}
+			
+			{% when "en" %}
+			<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		{% endcase %}
+		 -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
-		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
-		<link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/icons/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/icons/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/icons/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/icons/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/icons/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/icons/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/icons/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/icons/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.baseurl }}/icons/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/icons/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/icons/favicon-16x16.png">
-		<link rel="manifest" href="{{ site.baseurl }}/icons/manifest.json">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+		<link rel="manifest" href="/icons/manifest.json">
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
@@ -41,34 +57,36 @@
 	<body>
 		<header>
 			<h1>
-				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/DR.png" width="40" height="40" alt="{{ site.title }} logo"></a>
+				<a href="/{{ lang }}"><img src="/images/DR.png" width="40" height="40" alt="logo"></a>
 				{{ site.title }}
 				<button type="button" class="open-nav" id="open-nav"></button>
 			</h1>
 
-			<form action="{{ site.baseurl }}/search/" method="get">
-				<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+			<form action="/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="{{ locale.search_text }}" autofocus>
 				<input type="submit" value="Search" style="display: none;">
 			</form>
 
 			<nav>
 				<ul>
-					<li class="nav-item {% if page.url == '/' %}current{% endif %}">
-						{% assign home = site.html_pages | where: 'url', '/' | first %}
-						<a href="{{ site.baseurl }}/">{{ home.title }}</a>
+					<li class="nav-item {% if page.url == "/{{ lang }}" %}current{% endif %}">
+						<a href="/{{ lang }}">{{ locale.welcome_text }}</a>
 					</li>
 				</ul>
 
 				<ul>
-					{% assign grouped = site.docs | group_by: 'category' %}
+					{% assign grouped = site.docs | where: "lang", lang | group_by: 'category' %}
 					{% for group in grouped %}
 						<li class="nav-item top-level {% if group.name == page.category %}current{% endif %}">
+							{% if group.name == "" %}
+								{% continue %}
+							{% endif %}
 							{% assign items = group.items | sort: 'order' %}
-							<img src="{{ site.baseurl }}/images/arrow.svg" alt="arrow">
+							<img src="/images/arrow.svg" alt="arrow">
 							<button class="collapsible {% if group.name == page.category %}active{% endif %}">{{ group.name }}</button>
 							<ul>
 								{% for item in items %}
-									<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+									<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a></li>
 								{% endfor %}
 							</ul>
 						</li>
@@ -77,7 +95,7 @@
 
 				<ul>
 					<li class="nav-item">
-						<a href="https://github.com/CloudCannon/edition-jekyll-template" style="">Edition Repo.</a>
+						<a href="https://github.com/CloudCannon/edition-jekyll-template">{{ locale.repo_text }}</a>
 					</li>
 				</ul>
 			</nav>
@@ -93,10 +111,7 @@
 			</article>
 		</section>
 		
-		<footer>
-			<span>Powered by <a href="https://pages.github.com/">GitHub Pages</a> <br>
-			<a href="https://github.com/CloudCannon/edition-jekyll-template">Edition</a> jekyll template by <a href="https://cloudcannon.com/">CloudCannon</a></span>
-		</footer>
+		{% include footer.html lang=lang %}
 
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
