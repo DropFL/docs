@@ -1,0 +1,10 @@
+{% case include.icon_lang %}
+
+    {% when "ko" %}
+        {% assign icon_url = "south-korea.svg" %}
+    {% when "en" %}
+        {% assign icon_url = "united-states.svg" %}
+
+{% endcase %}
+
+<img src="{{ site.baseurl }}/images/{{ icon_url }}" alt="{{ include.icon_lang }}">

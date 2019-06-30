@@ -6,6 +6,7 @@ en:
   not_found_title: Uh-oh...
   search_result_text: Showing
   search_no_result_text: "No"
+  translate_text: Translate
 
 # Korean
 ko:
@@ -15,3 +16,4 @@ ko:
   not_found_title: 이런...
   search_result_text: 입니다.
   search_no_result_text: 가 없습니다.
+  translate_text: 번역

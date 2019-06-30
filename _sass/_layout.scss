@@ -202,6 +202,11 @@ $nav-image: $baseurl + "/images/menu.svg";
 }
 
 .page-header {
+	span {
+		font-size: 1.5rem;
+		color: gray;
+	}
+
 	h2,
 	h3 {
 		margin: 0;
@@ -219,6 +224,20 @@ $nav-image: $baseurl + "/images/menu.svg";
 	h3 {
 		font-size: 4rem;
 		margin-left: -4px;
+	}
+
+	img {
+		position: absolute;
+		opacity: 0.8;
+		padding: 0.15rem;
+		width: 3rem;
+		transition: opacity 0.2s ease-out;
+		background: black;
+		clip: rect(0.5rem, 3.3rem, 2.8rem, 0rem);
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	@media (min-width: $mobile-break) {

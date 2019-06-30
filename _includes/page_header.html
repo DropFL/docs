@@ -5,17 +5,22 @@
             {{ locale.not_found_title }}
         {% elsif page.category %}
             {{ page.category }}
-        {% else %}
+        {% elsif page.ref != nil and page.ref != ""  %}
             {{ site.title }}
         {% endif %}</h2>
     <h3>{{ page.title }}</h3>
     
-    {% assign trans = site.docs | where: "ref", page.ref %}
-    {% for item in trans %}
-        {% if item.lang == lang %}
-            {% continue %}
-        {% endif %}
+    {% if page.ref != nil and page.ref != "" %}
+        <span>{{ locale.translate_text }}:&nbsp;&nbsp;</span>
+        {% assign trans = site.docs | where: "ref", page.ref %}
+        {% for item in trans %}
+            {% if item.lang == lang %}
+                {% continue %}
+            {% endif %}
 
-        {{ item.url }}
-    {% endfor %}
+            <a href="{{ site.baseurl }}{{ item.url }}">
+                {% include flagicon.html icon_lang=item.lang %}
+            </a>
+        {% endfor %}
+    {% endif %}
 </div>
