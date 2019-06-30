@@ -1,0 +1,52 @@
+<header>
+    <!-- upper-left logo & title & menu button -->
+    <h1>
+        <a href="{{ site.baseurl }}/{{ lang }}"><img src="{{ site.baseurl }}/images/DR.png" width="40" height="40" alt="logo"></a>
+        {{ site.title }}
+        <button type="button" class="open-nav" id="open-nav"></button>
+    </h1>
+
+    <!-- search field -->
+    <form action="{{ site.baseurl }}/{{ lang }}/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="{{ locale.search_text }}" autofocus>
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    <!-- site navigator -->
+    <nav>
+        <!-- welcome -->
+        <ul>
+            {% capture welcome_url %}/{{ lang }}{% endcapture %}
+            <li class="nav-item {% if page.url == welcome_url %}current{% endif %}">
+                <a href="{{ site.baseurl }}/{{ lang }}">{{ locale.welcome_text }}</a>
+            </li>
+        </ul>
+
+        <!-- contents -->
+        <ul>
+            {% assign grouped = site.docs | where: "lang", lang | group_by: 'category' %}
+            {% for group in grouped %}
+                <li class="nav-item top-level {% if group.name == page.category %}current{% endif %}">
+                    {% if group.name == "" %}
+                        {% continue %}
+                    {% endif %}
+                    {% assign items = group.items | sort: 'order' %}
+                    <img src="{{ site.baseurl }}/images/arrow.svg" alt="arrow">
+                    <button class="collapsible {% if group.name == page.category %}active{% endif %}">{{ group.name }}</button>
+                    <ul>
+                        {% for item in items %}
+                            <li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- original repository link -->
+        <ul>
+            <li class="nav-item">
+                <a href="https://github.com/CloudCannon/edition-jekyll-template" target="_blank">{{ locale.repo_text }}</a>
+            </li>
+        </ul>
+    </nav>
+</header>

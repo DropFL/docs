@@ -1,0 +1,21 @@
+<div class="page-header">
+    <h2>
+        {% assign name = page.url | split: "/" | last %}
+        {% if name == "404" %}
+            {{ locale.not_found_title }}
+        {% elsif page.category %}
+            {{ page.category }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}</h2>
+    <h3>{{ page.title }}</h3>
+    
+    {% assign trans = site.docs | where: "ref", page.ref %}
+    {% for item in trans %}
+        {% if item.lang == lang %}
+            {% continue %}
+        {% endif %}
+
+        {{ item.url }}
+    {% endfor %}
+</div>
