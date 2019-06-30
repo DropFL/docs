@@ -15,7 +15,7 @@
 		{% endunless %}
 		{% assign locale = site.data.translate[lang] %}
 		
-		{% include preset.html lang=lang locale=locale %}
+		{% include preset.html %}
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
@@ -28,17 +28,17 @@
 	</head>
 
 	<body>
-		{% include sidebar.html lang=lang locale=locale %}
+		{% include sidebar.html %}
 
 		<section class="main">
-			{% include page_header.html lang=lang locale=locale %}
+			{% include page_header.html %}
 
 			<article class="content">
 				{{ content }}
 			</article>
 		</section>
 		
-		{% include footer.html lang=lang locale=locale %}
+		{% include footer.html %}
 
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
