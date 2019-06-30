@@ -2,6 +2,7 @@
 title: 스마트폰
 category: 연락처 동기화
 order: 2
+ref: phone
 ---
 
 Sync your phone contacts with ChatApp. ChatApp saves your phone contacts and adds anyone with an email address to your contact list!

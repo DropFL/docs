@@ -2,6 +2,7 @@
 title: Documents
 category: Media
 order: 3
+ref: documents
 ---
 
 Share documents with your friends! Send work or school projects from your computer or phone.

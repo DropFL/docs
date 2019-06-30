@@ -2,6 +2,7 @@
 title: iOS
 category: 디바이스
 order: 1
+ref: ios
 ---
 
 Use ChatApp on most of your Apple devices. Only the latest versions are supported.

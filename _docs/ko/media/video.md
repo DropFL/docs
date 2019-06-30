@@ -2,6 +2,7 @@
 title: 영상
 category: 미디어
 order: 2
+ref: video
 ---
 
 Share video to your friends! Send videos from your computer, phone, camera or YouTube.

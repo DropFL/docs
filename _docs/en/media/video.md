@@ -2,6 +2,7 @@
 title: Video
 category: Media
 order: 2
+ref: video
 ---
 
 Share video to your friends! Send videos from your computer, phone, camera or YouTube.

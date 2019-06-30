@@ -2,6 +2,7 @@
 title: 이미지
 category: 미디어
 order: 1
+ref: images
 ---
 
 Share images with your friends! Send photos and pictures from your computer, phone or camera.

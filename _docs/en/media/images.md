@@ -2,6 +2,7 @@
 title: Images
 category: Media
 order: 1
+ref: images
 ---
 
 Share images with your friends! Send photos and pictures from your computer, phone or camera.

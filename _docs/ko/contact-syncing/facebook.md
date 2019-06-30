@@ -2,6 +2,7 @@
 title: 페이스북
 category: 연락처 동기화
 order: 1
+ref: facebook
 ---
 
 Sync your Facebook contacts with ChatApp. Any of your Facebook friends with ChatApp accounts are automatically added to your contact list!
