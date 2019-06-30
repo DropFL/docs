@@ -3,7 +3,7 @@ layout: null
 sitemap: false
 ---
 
-$baseurl: "";
+$baseurl: "{{ site.baseurl }}";
 $body-background-color: #2B2E31;
 
 $content-max-width: 800px;

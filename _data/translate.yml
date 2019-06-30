@@ -4,6 +4,8 @@ en:
   welcome_text: Welcome!
   repo_text: Template Repository
   not_found_title: Uh-oh...
+  search_result_text: Showing
+  search_no_result_text: "No"
 
 # Korean
 ko:
@@ -11,3 +13,5 @@ ko:
   welcome_text: 환영합니다!
   repo_text: 템플릿 레포지토리
   not_found_title: 이런...
+  search_result_text: 입니다.
+  search_no_result_text: 가 없습니다.

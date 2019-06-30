@@ -15,5 +15,5 @@ permalink: /404.html
     if (!langs.includes(lang))
         lang = "{{ site.def_lang }}";
     
-    window.location.replace('{{ site.url }}/' + lang + '/404');
+    window.location.replace('{{ site.url }}{{ site.baseurl}}/' + lang + '/404');
 </script>

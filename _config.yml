@@ -3,6 +3,7 @@
 
 title: DropFL
 url: https://dropfl.github.io
+baseurl: 
 languages:
   - ko
   - en

@@ -1,6 +1,10 @@
 ---
 layout: null
 ---
+
+var found_txt = document.currentScript.getAttribute('found');
+var not_found_txt = document.currentScript.getAttribute('not_found');
+
 (function () {
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
@@ -69,14 +73,14 @@ layout: null
 					contentPreview = getPreview(query, item.content, 170),
 					titlePreview = getPreview(query, item.title);
 
-				resultsHTML += "<li><h4><a href='" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+				resultsHTML += "<li><h4><a href='{{ site.baseurl }}" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
 			});
 
 			searchResultsEl.innerHTML = resultsHTML;
-			searchProcessEl.innerText = "Showing";
+			searchProcessEl.innerText = found_txt;
 		} else {
 			searchResultsEl.style.display = "none";
-			searchProcessEl.innerText = "No";
+			searchProcessEl.innerText = not_found_txt;
 		}
 	}
 
