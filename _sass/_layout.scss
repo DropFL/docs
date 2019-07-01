@@ -68,9 +68,9 @@ body {
 }
 
 footer {
-	height: 100px;
+	height: 120px;
+	width: 100%;
 	display: table;
-	margin: 0 auto;
 	text-align: center;
 	line-height: 120%;
 	color: darkgray;
@@ -127,7 +127,6 @@ header {
 		font-size: 1.7rem;
 		line-height: 0.8;
 		letter-spacing: 0;
-		font-weight: 600;
 		text-indent: 0;
 		@include display-flex();
 		@include flex-direction(row);
@@ -274,7 +273,6 @@ nav > ul {
 
 .nav-item {
 	display: block;
-	font-family: "Open Sans", sans-serif;
 	line-height: 1;
 	margin: 0;
 
@@ -298,7 +296,6 @@ nav > ul {
 	> button {
 		color: #666;
 		line-height: 1.5;
-		font-weight: 600;
 		border: none;
 		outline: none;
 		background-color: $nav-background-color;
@@ -323,6 +320,7 @@ nav > ul {
 		position: relative;
 		list-style: none;
 		padding-left: $space;
+		line-height: 2;
 	}
 }
 
@@ -435,7 +433,6 @@ h4 svg {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 	border-left: 5px solid transparent;
 	font-size: 1.5rem;
-	font-weight: 600;
 	line-height: 1.8;
 
 	&:focus {
@@ -459,7 +456,6 @@ h4 svg {
 }
 
 .badge {
-	font-family: "Open Sans", sans-serif;
 	padding: 2px 5px;
 	text-transform: uppercase;
 	font-size: 0.8rem;

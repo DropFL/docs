@@ -4,11 +4,26 @@
 title: DropFL
 url: https://dropfl.github.io
 baseurl: 
+google_analytics_key:
+
+# To add a new language:
+
+# 1.  add its code to the following config.
+# 2.  add new folder to `_docs` folder and set its and as the code.
+# 3.  set default value for that folder to the `default` config.
+# 4.  add welcome and 404 page.
+#     be aware of `ref` and `permalink` property.
+# 5.  add search page.
+#     be aware of `ref` and the first paragraph.
+# 6.  add proper texts to `_data/translate.yml`.
+# 7.  add flag icon corresponds to the language to `flagicon.html` and `images` folder.
+# 8.  add proper footer message to `_include/footer.html`.
+# 9.  add new css file for it to `css` folder.
+# 10. now, add documents!
 languages:
   - ko
   - en
 def_lang: ko
-google_analytics_key:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /images/DR.png

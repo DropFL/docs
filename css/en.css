@@ -1,0 +1,38 @@
+/* Font Family Specifier */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+label,
+select,
+textarea,
+table,
+.nav-item,
+.badge {
+	font-family: "Open Sans", sans-serif;
+}
+
+body {
+	font-family: "Merriweather", serif;
+}
+
+pre, code, tt {
+	font-family: Inconsolata, Consolas, Courier, "Courier New", "Liberation Mono", monospace;
+}
+
+/* Tweaks */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-item > button,
+#search-input {
+	font-weight: 600;
+}
