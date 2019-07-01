@@ -11,13 +11,17 @@
     <h3>{{ page.title }}</h3>
     
     {% if page.ref != nil and page.ref != "" %}
-        <span>{{ locale.translate_text }}:&nbsp;&nbsp;</span>
-        {% assign trans = site.docs | where: "ref", page.ref %}
-        {% for item in trans %}
-            {% if item.lang == lang %}
-                {% continue %}
-            {% endif %}
+        <span>{{ locale.translate_text }}: 
+        {% assign same_doc = site.docs | where: "ref", page.ref %}
+        {% assign trans = same_doc | where_exp: "item", "item.lang != lang" %}
 
+        {% if trans.size == 0 %}
+            {{ locale.no_translate_text }}
+        {% endif %}
+        </span>
+        
+        {% for item in trans %}
+            &nbsp;
             <a id="{{ item.id }}">
                 {% include flagicon.html icon_lang=item.lang %}
             </a>
