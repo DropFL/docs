@@ -23,11 +23,12 @@
             </a>
 
             <script>
-                var elem_{{ item.lang }} = document.getElementById("{{ item.id }}");
-                if (document.URL.indexOf('?') < 0)
-                    elem_{{ item.lang }}.href = "{{ site.baseurl }}{{ item.url }}";
-                else
-                    elem_{{ item.lang }}.href = "{{ site.baseurl }}{{ item.url }}" + document.URL.substring(document.URL.indexOf('?'));
+                (function () {
+                    var elem = document.getElementById("{{ item.id }}");
+                    elem.href = "{{ site.baseurl }}{{ item.url }}";
+                    if (document.URL.indexOf('?') >= 0)
+                        elem.href += document.URL.substring(document.URL.indexOf('?'));
+                })();
             </script>
         {% endfor %}
     {% endif %}
