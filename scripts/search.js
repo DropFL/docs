@@ -109,5 +109,5 @@ var not_found_txt = document.currentScript.getAttribute('not_found');
 		});
 	}
 
-	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+	displaySearchResults(idx.search(query), query); // Hand the results off to be displayed
 })();
