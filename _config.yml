@@ -49,6 +49,7 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENCE
+  - .vscode
 
 collections:
   docs:
