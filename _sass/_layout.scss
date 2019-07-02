@@ -186,10 +186,20 @@ $nav-image: $baseurl + "/images/menu.svg";
 	background-color: $content-background-color;
 	color: $content-color;
 
-	h3::before {
+	h1::after,
+	h2::after,
+	h3::after {
 		content: "";
 		@extend hr;
-		margin: 60px 0;
+		margin: 10px 0;
+	}
+
+	h2::after {
+		border-width: 2px;
+	}
+
+	h1::after {
+		border-width: 4px;
 	}
 }
 
@@ -522,4 +532,16 @@ img {
 
 .cms-editor-active .editor-link {
 	display: block;
+}
+
+.on-mobile {
+	@media (min-width: $mobile-break) {
+		display: none;
+	}
+}
+
+.on-pc {
+	@media (max-width: $mobile-break) {
+		display: none;
+	}
 }
