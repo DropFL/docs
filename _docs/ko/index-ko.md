@@ -3,40 +3,84 @@ title: 환영합니다!
 permalink: /ko
 ref: welcome
 ---
+{% assign locale = site.data.translate[page.lang] %}
 
-한글 페이지
+**제 사이트에 오신 것을 환영합니다!** 이 사이트는 [DropFL](https://github.com/dropfl)이 참여한 프로젝트들에 대한 상세한 설명을 적기 위해 제작되었습니다. 즉, 일종의 `docs` 사이트라고 생각해도 무방합니다. 이 문서는 여러분이 여기를 더 편하게 둘러볼 수 있게 도와주는 사이트 가이드라인입니다.
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+{:d: .on-pc}
+{:m: .on-mobile}
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
+## 데스크톱 페이지 구조
+{: d}
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
+다음은 예시 데스크톱 페이지입니다.
+{: d}
 
-### Getting Started
+> TODO: add sample desktop image here
+{: d}
 
-Getting a message sent is quick and easy with ChatApp:
+## 모바일 페이지 구조
+{: m}
 
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
+다음은 예시 모바일 페이지입니다.
+{: m}
 
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
+> TODO: add sample mobile image here
+{: m}
 
-### Features
+### A. 사이드 바
+{: d}
 
-Explore more of ChatApp by reading about our features:
+페이지의 좌측에는 사이드 바가 위치해 있고, 위에서부터 차례대로 다음과 같은 구성을 갖추고 있습니다.
+{: d}
 
-#### Media
+### A. 상단 바
+{: m}
 
-Send images, videos and other media to people. Sources include your computer, phone and Facebook.
+페이지의 상단에는 다음이 포함된 바가 있습니다.
+{: m}
 
-#### Contact Syncing
+로고 및 이름
+: 로고를 누르면 환영 페이지로 이동합니다.
 
-Sync your contact list with your phone and/or Facebook contacts. Never lose your contacts between devices again!
+메뉴 버튼
+: 이 버튼을 누르면 메뉴가 열고 닫을 수 있습니다.
+{: m}
 
-#### Devices
+### B. 메뉴 창
+{: m}
 
-ChatApp is available everywhere. Find out how to set it up on your all your devices.
+메뉴 버튼을 통해 본문과 이 창으로 전환할 수 있으며, 위에서부터 차례대로 다음과 같은 구성을 갖추고 있습니다.
+{: m}
+
+검색 창
+: 각 문서의 제목, 내용, 카테고리를 검색할 수 있습니다.
+
+{{ page.title }}
+: 현재 열람 중인 문서에 대한 링크입니다.
+
+문서 목록
+: 사이트에 포함된 문서들을 카테고리 별로 분류한 목록입니다. 각 카테고리는 화살표와 함께 문서 링크보다 비교적 크고 굵은 글씨로 적혀 있으며, 클릭하여 해당 카테고리에 포함된 문서 목록을 접거나 펼칠 수 있습니다.
+: 여기에는 각 문서의 제목이 나열되어 있으며, 특정 항목을 클릭하면 해당되는 문서를 열람할 수 있는 링크로 이어집니다.
+
+{{ locale.repo_text }}
+: 이 사이트의 기반이 되는 [Edition](https://long-pig.cloudvent.net/) 템플릿의 GitHub 레포지토리 링크입니다.
+
+### B. 본문
+{: d}
+
+### C. 본문
+{: m}
+
+본문의 가장 위에는 3가지 요소가 순서대로 있습니다.
+
+카테고리
+: 이 문서가 포함된 카테고리가 회색으로 표시됩니다. 단, 환영 페이지, 검색 페이지는 `{{ site.title }}`이, 404 페이지는 `{{ locale.not_found_title }}`이 표시됩니다.
+
+제목
+: 문서의 제목이 카테고리보다 더 크게 검은색으로 표시됩니다.
+
+번역 목록
+: 이 문서에 존재하는 번역본의 목록입니다. 각 번역본은 언어에 맞는 국기 아이콘으로 표시되며, 클릭하여 해당 문서를 열람할 수 있습니다. 단, 번역이 존재하지 않는 경우 `{{ locale.no_translate_text }}`이 출력됩니다.
+
+본문 하단에는 저작권 등에 관한 고지가 있습니다.
