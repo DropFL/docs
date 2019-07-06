@@ -147,6 +147,17 @@ li li {
 	margin: 0;
 }
 
+abbr[title] {
+	text-decoration: none;
+	border: none;
+	cursor: help;
+
+	&::after {
+		content: "?";
+		@extend sup
+	}
+}
+
 hr {
 	display: block;
 	height: 1px;

@@ -3,12 +3,9 @@ table {
 	margin-bottom: 1.75em;
 }
 
-tr {
-	border-bottom: 1px solid #EEE;
-}
-
-tr:nth-child(even) {
-	background: #fcfcfc;
+td:nth-child(even),
+th:nth-child(even) {
+	background: #F4F4F4;
 }
 
 td, th {
@@ -17,5 +14,9 @@ td, th {
 }
 
 th {
-	padding-bottom: 4px;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+td {
+	border-top: 1px solid #E0E0E0;
 }
