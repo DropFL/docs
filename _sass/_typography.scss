@@ -85,17 +85,6 @@ a:hover {
 	color: #0075e2;
 }
 
-.footnotes {
-	font-size: 1.2rem;
-	li {
-		margin: 0;
-	}
-}
-
-.footnote {
-	text-decoration-line: none;
-}
-
 p,
 ul,
 ol,
@@ -272,4 +261,29 @@ kbd {
 	h6 {
 		font-size: 1.8rem;
 	}
+}
+
+.footnotes {
+	font-size: 1.2rem;
+	li {
+		margin: 0;
+
+		p {
+			margin-bottom: 10px;
+		}
+	}
+
+	ol {
+		margin: 0;
+	}
+
+	&::before {
+		content: "";
+		@extend hr;
+		margin: 20px 0;
+	}
+}
+
+.footnote {
+	text-decoration-line: none;
 }

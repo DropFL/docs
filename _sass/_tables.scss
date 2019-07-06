@@ -1,6 +1,7 @@
 table {
 	width: 100%;
 	margin-bottom: 1.75em;
+	word-break: keep-all;
 }
 
 td:nth-child(even),
@@ -10,13 +11,14 @@ th:nth-child(even) {
 
 td, th {
 	padding: 8px;
-	text-align: left;
 }
 
 th {
 	border-bottom: 1px solid #E0E0E0;
+	text-align: center !important;
 }
 
 td {
 	border-top: 1px solid #E0E0E0;
+	text-align: left;
 }
