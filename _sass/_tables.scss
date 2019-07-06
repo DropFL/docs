@@ -4,9 +4,9 @@ table {
 	word-break: keep-all;
 }
 
-td:nth-child(even),
-th:nth-child(even) {
-	background: #F7F7F7;
+th + th,
+td + td {
+	border-left: 1px solid #E0E0E0;
 }
 
 td, th {
