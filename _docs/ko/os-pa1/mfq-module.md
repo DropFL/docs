@@ -38,7 +38,7 @@ MFQ 모듈이 제공하는 함수는 다음과 같습니다.
 3. `Process`를 원하는 `ProcQueue`에 `enqueue`한다.[^2]
 4. 스케줄링이 끝날 때까지 `proceed`를 반복 호출하여 결과를 받아낸다.
 
-[^2]: `MFQ`의 멤버에 직접 접근하여 `enqueue`를 호출한다. [이 라인](https://github.com/DropFL/OS_PA1/blob/master/main.c#L50)과 [이 라인](https://github.com/DropFL/OS_PA1/blob/master/main.c#L54) 참조.
+[^2]: [이 라인](https://github.com/DropFL/OS_PA1/blob/master/main.c#L50)과 [이 라인](https://github.com/DropFL/OS_PA1/blob/master/main.c#L54)처럼, `MFQ`의 멤버에 직접 접근하여 `enqueue`를 호출해야 합니다.
 
 `MFQ`는 사용된 모듈 중 가장 규모가 작지만 상대적으로 복잡도가 가장 높은데, 이는 `proceed` 함수가 가장 복잡하기 때문입니다. 이 함수는 스케줄링 대상 `Process`와 소요 시간의 결정, 대상 `MFQ` 내 모든 `Process`의 관리 및 수정 작업이 모두 발생합니다.[^3] 물론 이 역할을 쪼갤 수도 있지만, 그다지 큰 의미가 없거나 오히려 다른 모듈이 원래대로라면 불필요한 인자를 추가로 받게 됩니다.[^4]
 
