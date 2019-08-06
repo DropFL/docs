@@ -265,22 +265,15 @@ kbd {
 
 .footnotes {
 	font-size: 1.2rem;
-	li {
-		margin: 0;
 
-		p {
-			margin-bottom: 10px;
-		}
-	}
-
-	ol {
+	ol, li, li p {
 		margin: 0;
 	}
 
 	&::before {
 		content: "";
 		@extend hr;
-		margin: 20px 0;
+		margin: 10px 0 20px;
 	}
 }
 
