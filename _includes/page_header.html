@@ -9,17 +9,16 @@
             {{ site.title }}
         {% endif %}</h2>
     <h3>{{ page.title }}</h3>
-    
+
     {% if page.ref != nil and page.ref != "" %}
-        <span>{{ locale.translate_text }}: 
-        {% assign same_doc = site.docs | where: "ref", page.ref %}
-        {% assign trans = same_doc | where_exp: "item", "item.lang != lang" %}
+        <span>{{ locale.translate_text }}:
+        {% assign trans = site.docs | where: "ref", page.ref | where_exp: "item", "item.lang != lang" %}
 
         {% if trans.size == 0 %}
             {{ locale.no_translate_text }}
         {% endif %}
         </span>
-        
+
         {% for item in trans %}
             &nbsp;
             <a id="{{ item.id }}">
