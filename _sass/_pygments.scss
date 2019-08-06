@@ -1,5 +1,35 @@
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
+.highlight table {
+  width: initial;
+  margin: 0;
+
+  td {
+    padding: 5px;
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  .gutter, .gutter .lineno, .code {
+    padding: 0;
+  }
+
+  .gutter {
+    .lineno {
+      font-weight: bold;
+      width: fit-content;
+      margin-right: 10px;
+    }
+  }
+
+  .code {
+    border-left: 1px solid darkgrey;
+  }
+
+  .code pre {
+    padding: 0 0 0 10px;
+  }
+}
 .highlight .cm {
   color: #999988;
   font-style: italic;
