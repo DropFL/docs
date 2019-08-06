@@ -22,7 +22,10 @@ ref: os-pa1-option-module
 
 [^1]: 값이 `0` 또는 `1`임을 의미합니다. C언어에는 `bool` 타입이 없으나 편의상 이와 같이 표현했습니다.
 
-각각의 옵션에 따른 프로그램의 변화는 **개요** 문서를 참조하십시오.
+{% assign select = site.docs | where: "ref", "os-pa1-overview" | where: "lang", page.lang %}
+{% assign overview = select[0] %}
+
+각각의 옵션에 따른 프로그램의 변화는 [개요]({{ overview.url | absolute_url }}) 문서를 참조하십시오.
 
 `input`과 `output`은 문자열이며 자주 사용되지 않기 때문에 직접 접근하는 것으로 충분하지만, `verbose`와 `silent`의 경우 타 모듈 내에서 매우 자주 사용되며, 특히 둘 사이의 우선순위가 존재하기 때문에 이에 대한 `if`문을 일일히 적는 것은 매우 비효율적입니다. 따라서, 다음과 같은 매크로를 지원합니다.
 
