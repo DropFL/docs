@@ -60,3 +60,5 @@ ref: os-pa1-queue-module
 | `schedule`  | `ProcQueue* q`                                    | `q`를 스케줄링했을 때 소요될 시간을 계산합니다. 내부적으로는 `q->scheduler`에게 위임됩니다. | 소요되는 시간을 나타내는 정수입니다. |
 | `iterate`   | `ProcQueue* q`<br>`IterFunc* func`<br>`void* arg` | `q`에 속한 `Process`들에 대해 `func`를 `arg`와 함께 호출합니다. `q->head->proc`부터 `q->tail->proc`까지 순서대로 호출함이 보장됩니다. 호출 당 최대 1회의 `dequeue`가 가능합니다. | - |
 | `move_head` | `ProcQueue* from`<br>`ProcQueue* to`              | `enqueue(to, dequeue(from))`과 동일한 작업을 수행합니다. `enqueue`/`dequeue`는 `Element`에 대한 메모리를 할당/해제하는 작업을 수행하는데, 이를 번갈아 하는 경우 메모리의 경제성이 떨어지므로 이 함수를 사용하는 것이 좋습니다. | - |
+
+{% include pagenator.html %}

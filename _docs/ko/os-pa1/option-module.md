@@ -61,3 +61,5 @@ printf("this message is always printed.");
 [^4]: `if (is_verbose())`를 매크로로 등록하는 방법이 뒤늦게 떠올랐습니다. 향후 이 모듈을 재사용할 때 수정하도록 하겠습니다.
 
 이 기능을 별도의 모듈로서 제작한 이유는 재사용성을 위한 것입니다. 지금은 [GetOpt](http://www.gnu.org/software/libc/manual/html_node/Getopt.html)나 [Argp](http://www.gnu.org/software/libc/manual/html_node/Argp.html) 등을 사용하지 않고 naïve하게 구현되었으나, 이 모듈은 외부 라이브러리를 사용해 인자를 해석하더라도 옵션을 관리하는 모듈이므로 다른 프로그램에서도 사용할 가치가 있습니다.
+
+{% include pagenator.html %}

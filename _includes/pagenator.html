@@ -1,0 +1,33 @@
+{% assign _pages = site.docs | where: "category", page.category | where: "lang", page.lang | sort: "order" %}
+
+{% for _page in _pages %}
+    {% if _page == page %}
+        {% if forloop.first == false %}
+            {% assign prv = forloop.index0 | minus: 1 %}
+        {% endif %}
+
+        {% if forloop.last == false %}
+            {% assign nxt = forloop.index0 | plus: 1 %}
+        {% endif %}
+
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+<table class="pagenate">
+    <tr>
+        <td class="prev-page">
+            {% if prv %}
+            ← <a href="{{ _pages[prv].url | absolute_url }}">{{ _pages[prv].title }}</a>
+            {% endif %}
+        </td>
+        <td class="curr-page">
+            {{ page.title }}
+        </td>
+        <td class="next-page">
+            {% if nxt %}
+            <a href="{{ _pages[nxt].url | absolute_url }}">{{ _pages[nxt].title }}</a> →
+            {% endif %}
+        </td>
+    </tr>
+</table>

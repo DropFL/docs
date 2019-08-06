@@ -167,3 +167,4 @@ $ main
 {% for module in modules %}
 {{ forloop.index }}. [{{ module.title }}]({{ module.url | absolute_url }}) {% endfor %}
 
+{% include pagenator.html %}

@@ -55,3 +55,5 @@ typedef enum {
 [^2]: SRTN의 Preemption을 구현하는 데에 쓰입니다.
 
 <!-- 개인적으로 get_policy 함수는 실패적인 디자인의 결과라고 생각합니다. -->
+
+{% include pagenator.html %}

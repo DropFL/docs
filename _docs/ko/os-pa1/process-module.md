@@ -79,3 +79,5 @@ int ProcCompare (Process* a, Process* b);
 `get_compare` 함수는 `Factor`를 인자로 받아 그에 맞는 `ProcCompare` 타입의 함수에 대한 참조를 반환합니다. 예를 들어, `get_compare(NONE)`의 반환값은 항상 0을 반환하는 함수에 대한 포인터입니다.
 
 이 모듈 내부에 `static`으로 선언된 `ProcCompare`들과 `Factor`의 상수들은 1:1로 대응되고, `get_compare`는 이 관계를 기반으로 `Factor`에 대응되는 `ProcCompare`를 반환하여 이에 대한 접근 및 호출을 가능케 합니다.
+
+{% include pagenator.html %}
